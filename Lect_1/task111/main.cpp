@@ -10,6 +10,6 @@ int main()
     cout << "Input please B number: ";
     cin >> b;
     cout << "The result is: "<<a+b;
-    //Чисто красоты ради
+
     cout<<endl;
 }
