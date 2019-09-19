@@ -23,10 +23,13 @@ int main()
     cout << endl;
 
     if (D>0){
-        x1 = (-b-sqrtD)/2*a;
-        x2 = (-b+sqrtD)/2*a;
-
+            cout << "here";
+        x1 = (-b-sqrtD)/(2*a);
+        x2 = (-b+sqrtD)/(2*a);
         cout << "Then X1 is: " << x1 << endl;
         cout << "And X2 is: " << x2 << endl;
+    }else if(D == 0){
+        x1 = (-b+sqrtD)/(2*a);
+        cout << "Then X1=X2= " << x1 << endl;
     }else cout << "Unfortunately, discriminant is less than or equals 0..." << endl;
 }
