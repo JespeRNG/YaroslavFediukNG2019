@@ -20,7 +20,7 @@ int main()
         if (M <= N){
             if (M >= K){
                 cout << "Belochka provedet otlichnuyu zimu :D" << endl;
-            }
+            }else cout << "Oreshkov bol'she, chem shishek :(";
         }
     }else cout << "U belochki proizoshel bug" << endl;
 
