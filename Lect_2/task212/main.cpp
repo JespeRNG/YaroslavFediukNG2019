@@ -13,6 +13,11 @@ int main()
 
     while ( i < n+1){
         cout << i;
+
+        if (i == n){
+            cout << ".";
+        }else cout << ", ";
+
         i++;
     }
 }
