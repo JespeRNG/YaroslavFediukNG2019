@@ -19,9 +19,9 @@ int main()
     if (N > 0 || M > N || M < K){
         if (M <= N){
             if (M >= K){
-                cout << "Belochka provedet otlichnuyu zimu :D" << endl;
-            }else cout << "Oreshkov bol'she, chem shishek :(";
+                cout << "YES" << endl;
+            }else cout << "NO";
         }
-    }else cout << "U belochki proizoshel bug" << endl;
+    }else cout << "NO" << endl;
 
 }
