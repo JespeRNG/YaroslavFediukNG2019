@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string.h>
 
 using namespace std;
 
@@ -8,11 +7,6 @@ int main()
     char sentence[100];
     int SENTENCE[100];
     int i = 0, cnt = 0;
-    int a = 97;
-
-    /**char b = char(a);
-
-    cout << b;**/
 
     cout << "Input please a sentence: ";
     cin.getline(sentence, 100);
