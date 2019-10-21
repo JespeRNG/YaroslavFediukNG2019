@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1571655658 source:/home/jesper/git/YaroslavFediukNG2019/Lect_5/task521/main.cpp
+	<iostream>
+	<math.h>
+
