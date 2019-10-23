@@ -13,7 +13,7 @@ int main()
     cout << "Input C number: ";
     cin >> c;
 
-    if (a*b==c && a*c==b && b*c==a){
-        cout << "YES";
-    }else cout << "NO" << endl;
+    if (a*b == c || a*c == b || b*c==a){
+        cout << "\nYES\n";
+    }else cout << "\nNO\n" << endl;
 }
