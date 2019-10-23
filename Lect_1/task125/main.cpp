@@ -4,24 +4,23 @@ using namespace std;
 
 int main()
 {
-    int N, M, K;
+    int shish, nuts, need_nuts;
 
     cout << "Belochka sobrala shishek: ";
-    cin >> N;
+    cin >> shish;
 
-    cout << "Belochka sobrala oreshkov iz shishek: ";
-    cin >> M;
+    do{
+        cout << "Belochka sobrala oreshkov iz shishek: ";
+        cin >> nuts;
+    }while (nuts > shish);
 
     cout << "Belochke nuzhno oreshkov dlya zhizni: ";
-    cin >> K;
+    cin >> need_nuts;
+
     cout <<endl;
 
-    if (N > 0 || M > N || M < K){
-        if (M <= N){
-            if (M >= K){
-                cout << "YES" << endl;
-            }else cout << "NO";
-        }
-    }else cout << "NO" << endl;
+    if (nuts < need_nuts){
+        cout << "NO";
+    }else cout << "YES\n";
 
 }
