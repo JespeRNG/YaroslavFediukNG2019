@@ -4,35 +4,29 @@ using namespace std;
 
 int main()
 {
-    int schools[10];
-    int number, n, i, your_s;
-    n = 1;
-    for (i=0; i < 10; i++){
-        schools[i]=0;
-    }
-
-    i = 0;
+    int schools[10], your_s;
+    int i = 0;
+    int yes_no = 0;
 
     while (i < 10){
-        cout << "Enter please a number of the " << n << " school: ";
-        cin >> number;
-
-        schools[i]=number;
-
-        n++;
+        cout << "Enter please number of the " << i+1 << " school: ";
+        cin >> schools[i];
         i++;
     }
 
-    i = 0;
-    cout << endl;
-    cout << "Now, enter your school number please: ";
+    cout << "--------------------------------------------\n";
+
+    cout << "Enter your schools please: ";
     cin >> your_s;
 
-    cout << endl;
-
-    for (i=0; i < 10; i++){
-        if (your_s == schools[i]){
-            cout << "Seems like I know this school: " << schools[i] << " :D" << endl;
+    for (int n=0; n < i; n++){
+        if (schools[n] != your_s){
+            continue;
+        }else{
+            cout << "\nYeah, I remember this school :)\n";
+            yes_no = 1;
         }
     }
+
+    if (yes_no != 1) cout << "\nUnfortunately, I don't remember this school :(\n";
 }
