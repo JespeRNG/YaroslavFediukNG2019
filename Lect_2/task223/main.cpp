@@ -28,12 +28,9 @@ int main()
         }
     }
 
-    cout << endl;
-
     for (i=0; i < steps; i++){
         spaces[i] = maxv - stars[i];
         spaces[i] = spaces[i] / 2;
-        cout << "The first line will have: " << stars[i] << " stars and " << spaces[i] << " spaces;" << endl;
     }
 
     cout << endl;
