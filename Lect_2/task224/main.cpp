@@ -5,29 +5,24 @@ using namespace std;
 int main()
 {
     int ask=0;
-    int counter, counterinho, maximum=0;
-    counter=0;
+    int counter=0, counterinho, maximum=0;
 
     cout<<"How many columns do u want to have ?: ";
     cin>>ask;
-    int a[ask];
+    int *a = new int[ask];
 
     while (counter<ask){
-
-        cout<<"Stars per "<<counter + 1<<" column: ";
-        cin>>a[counter];
+        cout << "Stars per " << counter + 1 << " column: ";
+        cin >> a[counter];
         counter++;
     }
 
     counter=0;
 
     while (counter < ask){
-
         if (maximum < a[counter]){
-
             maximum=a[counter];
         }
-
         counter++;
     }
 
@@ -38,7 +33,6 @@ int main()
         counterinho=0;
 
         while (counterinho<ask){
-
             if(counter<a[counterinho]){
                 cout<<"*";
             }else{
@@ -46,7 +40,6 @@ int main()
             }
             counterinho++;
         }
-
         cout<<endl;
         counter++;
     }
