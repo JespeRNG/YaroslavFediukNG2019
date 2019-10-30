@@ -2,14 +2,14 @@
 
 using namespace std;
 
-void multiply(int digit, int arr[]){
+void multiply(int digit, int siz, int arr[]){
 
     int i = 0;
 
     cout << endl;
     cout << "Now, your array looks like that: " << endl;
 
-    while (i < 6){
+    while (i < siz){
         arr[i] = arr[i]*digit;
         cout << i << " element is: " << arr[i] << "," << endl;
         i++;
@@ -19,13 +19,17 @@ void multiply(int digit, int arr[]){
 
 int main()
 {
-    int i =0;
+    int i =0, siz;
     int multi = 0;
-    int d[6];
 
-    cout << "Enter please digits in this array." << endl;
+    cout << "Enter please the size of array: ";
+    cin >> siz;
 
-    while (i < 6){
+    int *d = new int[siz];
+
+    cout << "\nEnter please digits in this array." << endl;
+
+    while (i < siz){
         cout << "Digit of " << i+1 << " element: ";
         cin >> d[i];
         i++;
@@ -37,5 +41,5 @@ int main()
     cin >> multi;
     cout << endl;
 
-    multiply(multi, d);
+    multiply(multi, siz, d);
 }
