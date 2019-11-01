@@ -7,9 +7,13 @@ int main()
     int ask=0;
     int counter=0, counterinho, maximum=0;
 
-    cout<<"How many columns do u want to have ?: ";
+    cout<<"How many columns do u want to have ?(1-25): ";
     cin>>ask;
-    int *a = new int[ask];
+    int a[25];
+
+    for (int i=0; i < 25; i++){
+        a[i] = 0;
+    }
 
     while (counter<ask){
         cout << "Stars per " << counter + 1 << " column: ";
@@ -21,14 +25,14 @@ int main()
 
     while (counter < ask){
         if (maximum < a[counter]){
-            maximum=a[counter];
+            maximum = a[counter];
         }
         counter++;
     }
 
     counter=0;
 
-    while (counter< maximum){
+    while (counter < maximum){
 
         counterinho=0;
 
