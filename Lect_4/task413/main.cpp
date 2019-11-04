@@ -11,7 +11,7 @@ int main()
     cin.getline(sentence, 100);
 
     while (sentence[i] != NULL){
-        if (sentence[i] >= 97 && sentence[i] <= 122) { cout << char(sentence[i]-32);
+        if (sentence[i] >= 'a' && sentence[i] <= 'z') { cout << char(sentence[i]-32);
         }else cout << sentence[i];
         i++;
     }
