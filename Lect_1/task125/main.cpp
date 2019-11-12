@@ -4,23 +4,21 @@ using namespace std;
 
 int main()
 {
-    int shish, nuts, need_nuts;
+    int n, m, k, quan = 0;
 
-    cout << "Belochka sobrala shishek: ";
-    cin >> shish;
+    cout << "Enter please the quantity of cones: ";
+    cin >> n;
+    cout << "Enter please the quantity of nuts: ";
+    cin >> m;
+    cout << "Squirrel needed nuts to be happy: ";
+    cin >> k;
 
-    do{
-        cout << "Belochka sobrala oreshkov iz shishek: ";
-        cin >> nuts;
-    }while (nuts > shish);
+    quan = n * m;
 
-    cout << "Belochke nuzhno oreshkov dlya zhizni: ";
-    cin >> need_nuts;
-
-    cout <<endl;
-
-    if (nuts < need_nuts){
-        cout << "NO";
-    }else cout << "YES\n";
+    if (quan >= k){
+        cout << "\nYES!\n";
+    }else{
+        cout << "\nNO!\n";
+    }
 
 }
