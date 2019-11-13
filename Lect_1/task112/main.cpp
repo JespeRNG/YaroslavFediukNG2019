@@ -9,19 +9,17 @@ int main()
     cout << "Input please your salary: ";
     cin >> sal;
 
-    if (sal > 999999){
-        cout << "You are a millionaire";
+    cout << endl;
+
+    if(sal >= 1000){
+        if (sal >= 1000000){
+            cout << "Ti millioner!";
+        }else cout << "Horosho";
     }
 
-    if (sal > 1000 ){
-        if (sal < 1000000){
-            cout << "You have a nice salary";
-        }
+    if(sal < 1000){
+        if(sal > 0) cout << "Rabotai bolshe";
     }
 
-    if (sal < 1001){
-        cout << "You have to work harder";
-    }
-
-    cout << ", anyway you're a good guy "<<endl;
+    cout << "... no ti molodec\n";
 }
