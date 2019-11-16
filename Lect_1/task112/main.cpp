@@ -11,14 +11,17 @@ int main()
 
     cout << endl;
 
-    if(sal >= 1000){
-        if (sal >= 1000000){
+    if (sal > 1000){
+        if (sal > 1000000){
             cout << "Ti millioner!";
-        }else cout << "Horosho";
+        }
+        if (sal < 1000001){
+            cout << "Horosho";
+        }
     }
 
-    if(sal < 1000){
-        if(sal > 0) cout << "Rabotai bolshe";
+    if (sal < 1001){
+        cout << "Rabotai bol'she";
     }
 
     cout << "... no ti molodec\n";
