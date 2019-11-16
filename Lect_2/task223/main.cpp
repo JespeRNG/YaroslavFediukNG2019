@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
 
-    int stars[20], spaces[20], i = 0, n = 0, m = 0, maxv = 0, steps = 0;
+    int stars[20], i = 0, n = 0, m = 0, maxv = 0, steps = 0;
 
     while (i < 20){
         cout << "Enter the quantity of stars in the " << i+1 << " line: ";
@@ -28,19 +28,14 @@ int main()
         }
     }
 
-    for (i=0; i < steps; i++){
-        spaces[i] = maxv - stars[i];
-        spaces[i] = spaces[i] / 2;
-    }
-
     cout << endl;
 
     for (i=0; i < steps; i++){
-        while (n < spaces[i]){
-            cout << " ";
-            n++;
-        }
         while (m < stars[i]){
+            while(n < (maxv-stars[i])/2){
+                cout << " ";
+                n++;
+            }
             cout << "*";
             m++;
         }
