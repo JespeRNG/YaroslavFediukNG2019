@@ -19,15 +19,8 @@ MainWindow::~MainWindow()
 
 }
 
-void MainWindow::on_showInfo_clicked()
+QString cpuinfo ()
 {
-    QString ostype = "", oskernel = "", osarch = "";
-
-    oskernel = QSysInfo::kernelVersion();
-    ostype = QSysInfo::prettyProductName();
-    osarch = QSysInfo::currentCpuArchitecture();
-
-    //CPU
     QProcess linuxcpuinfo;
 
     linuxcpuinfo.start("bash", QStringList() << "-c" << "cat /proc/cpuinfo | grep 'model name' | uniq");
@@ -36,20 +29,12 @@ void MainWindow::on_showInfo_clicked()
 
     linuxCpuOutput.remove(0,12);
     linuxCpuOutput.replace(0,0, "CPU Info: ");
-    //CPU
 
-    //CPU CORES
-    QProcess linuxcpucoresinfo;
+    return linuxCpuOutput;
+}
 
-    linuxcpucoresinfo.start("bash", QStringList() << "-c" << "cat /proc/cpuinfo | grep 'cpu cores' | uniq");
-    linuxcpucoresinfo.waitForFinished();
-    QString linuxCpuCOutput = linuxcpucoresinfo.readAllStandardOutput();
-
-    linuxCpuCOutput.remove(0,12);
-    linuxCpuCOutput.replace(0,0, "CPU Cores: ");
-    //CPU CORES
-
-    //GPU
+QString gpuinfo()
+{
     QProcess linuxgpuinfo;
 
     linuxgpuinfo.start("bash", QStringList() << "-c" << "nvidia-smi -q | grep 'Product Name' | uniq");
@@ -58,9 +43,26 @@ void MainWindow::on_showInfo_clicked()
 
     linuxGpuOutput.remove(0,37);
     linuxGpuOutput.replace(0,0, "GPU Info: ");
-    //GPU
 
-    //RAM
+    return linuxGpuOutput;
+}
+
+QString cpucores()
+{
+    QProcess linuxcpucoresinfo;
+
+    linuxcpucoresinfo.start("bash", QStringList() << "-c" << "cat /proc/cpuinfo | grep 'cpu cores' | uniq");
+    linuxcpucoresinfo.waitForFinished();
+    QString linuxCpuCOutput = linuxcpucoresinfo.readAllStandardOutput();
+
+    linuxCpuCOutput.remove(0,12);
+    linuxCpuCOutput.replace(0,0, "CPU Cores: ");
+
+    return linuxCpuCOutput;
+}
+
+QString raminfo()
+{
     QProcess linuxraminfo;
 
     linuxraminfo.start("bash", QStringList() << "-c" << "cat /proc/meminfo | grep 'MemTotal' | uniq");
@@ -80,13 +82,33 @@ void MainWindow::on_showInfo_clicked()
 
     linuxRamOutput.replace(0,0, "RAM: ");
     linuxRamOutput = linuxRamOutput + " GB";
-    //RAM
 
-    ui->ostype->setText("OS Type: " + ostype);
-    ui->oskernel->setText("OS Kernel: " + oskernel);
-    ui->osarch->setText("CPU Achitecture: " + osarch);
-    ui->cpuinfo->setText(linuxCpuOutput);
-    ui->gpuinfo->setText(linuxGpuOutput);
-    ui->cpucores->setText(linuxCpuCOutput);
-    ui->raminfo->setText(linuxRamOutput);
+    return linuxRamOutput;
+}
+
+QString os_details(int a)
+{
+    QString ostype = "", oskernel = "", osarch = "";
+
+    oskernel = QSysInfo::kernelVersion();
+    ostype = QSysInfo::prettyProductName();
+    osarch = QSysInfo::currentCpuArchitecture();
+
+    switch (a)
+    {
+        case 1: return oskernel;
+        case 2: return ostype;
+        case 3: return osarch;
+    }
+}
+
+void MainWindow::on_showInfo_clicked()
+{
+    ui->ostype->setText("OS Type: " + os_details(2));
+    ui->oskernel->setText("OS Kernel: " + os_details(1));
+    ui->osarch->setText("OS Architecture: " + os_details(3));
+    ui->cpuinfo->setText(cpuinfo());
+    ui->gpuinfo->setText(gpuinfo());
+    ui->cpucores->setText(cpucores());
+    ui->raminfo->setText(raminfo());
 }
