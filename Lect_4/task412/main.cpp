@@ -4,35 +4,46 @@ using namespace std;
 
 int main()
 {
-    char str[500];
-    cout<<"Input some words please: ";
-    cin.getline(str, 500);
-    int letter_i = 0, pos = 0, MaxPos = 0, Maxlength = 0;
-    int i=0;
+    char sent[50];
+    int i=0, n=0;
+    int dif=0;
+    int largest=0;
 
-    while(str[i]!=NULL){
-            if((str[i] >= 'a' && str[i] <= 'z')||(str[i] >= 'A' && str[i] <= 'Z')){
-                letter_i++;
-            }else{
-                pos=i+1;
-                letter_i=1;
-            }
+    cout << "Input please a sentence: ";
+    cin.getline(sent,100);
 
-            if((str[i+1] != 'a' && str[i+1] != 'z')||(str[i+1] != 'A' && str[i+1] != 'Z') && str[i+1] != NULL){
-                if ( Maxlength<letter_i ){
-                    Maxlength=letter_i;
-                    MaxPos=pos;
-                }
+    while (sent[i]!=NULL)
+    {
+        if ((sent[i]>='a' && sent[i]<='z') || (sent[i]>='A' && sent[i]<='Z'))
+            n++;
+        else {
+            if (n > largest)
+            {
+                largest = n;
+                dif = i-largest;
             }
+            n = 0;
+        }
+
+        if (sent[i+1]==0)
+        {
+            if (n > largest && sent[i+1]==0)
+            {
+                largest = n;
+                dif = i-largest;
+            }
+            n=0;
+        }
         i++;
     }
 
-    cout << "The longest word: ";
+    cout << endl << "The largest word is: ";
 
-    i=0;
-
-    while(i < Maxlength){
-        cout << str[MaxPos+i];
-        i++;
+    for (i=0;i < largest;i++)
+    {
+        cout << sent[dif];
+        dif++;
     }
+
+    cout << endl;
 }
