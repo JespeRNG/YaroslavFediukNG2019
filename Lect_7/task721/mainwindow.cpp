@@ -41,12 +41,7 @@ void MainWindow::toencrypt()
 
     key.chop(key.length()-input.length());
 
-    qDebug() << key;
-
-    //encrypting words
-    string alpha = "abcdefghijklmnopqrstuvwxyz";
-    string alphau = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    //Converting some variables from QString -> string
+    //Converting some variables from QString -> string 
     string input_s = input.toUtf8().constData();
     string key_s = key.toUtf8().constData();
 
@@ -54,15 +49,19 @@ void MainWindow::toencrypt()
 
     for(int i=0; i < input.length(); i++)
     {
-        if (int(input_s[i]) >= 64 && int(input_s[i])<=90)
-            in_codes[i] = alphau.find(input_s[i]);
+        if (int(input_s[i]) >= 65 && int(input_s[i])<=90)
+            in_codes[i] = int(input_s[i])-65;
         else
-            in_codes[i] = alpha.find(input_s[i]);
+            in_codes[i] = int(input_s[i])-97;
     }
 
     for(int i=0; i < key.length(); i++)
     {
-        key_codes[i] = alpha.find(key_s[i]);
+        if(int(key_s[i]) >= 65 && int(key_s[i]) <= 90)
+            key_codes[i] = int(key_s[i])-65;
+        else
+            key_codes[i] = int(key_s[i])-97;
+
         out_codes[i] = in_codes[i] + key_codes[i]+1;
 
         if(out_codes[i] > 26)
@@ -110,9 +109,6 @@ void MainWindow::todecrypt()
 
     key.chop(key.length()-input.length());
 
-    //encrypting words
-    string alpha = "abcdefghijklmnopqrstuvwxyz";
-    string alphau = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     //Converting some variables from QString -> string
     string input_s = input.toUtf8().constData();
     string key_s = key.toUtf8().constData();
@@ -122,15 +118,20 @@ void MainWindow::todecrypt()
     for(int i=0; i < input.length(); i++)
     {
         if (int(input_s[i]) >= 64 && int(input_s[i])<=90)
-            in_codes[i] = alphau.find(input_s[i]);
+            in_codes[i] = int(input_s[i])-65;
         else
-            in_codes[i] = alpha.find(input_s[i]);
+            in_codes[i] = int(input_s[i])-97;
     }
 
     for(int i=0; i < key.length(); i++)
     {
-        key_codes[i] = alpha.find(key_s[i]);
+        if(int(key_s[i]) >= 65 && int(key_s[i]) <= 90)
+            key_codes[i] = int(key_s[i])-65;
+        else
+            key_codes[i] = int(key_s[i])-97;
+
         out_codes[i] = in_codes[i] - key_codes[i] + 1;
+
         if(out_codes[i] < 0)
             out_codes[i] = out_codes[i] + 26;
         if (int(input_s[i]) >= 64 && int(input_s[i]) <= 90)
