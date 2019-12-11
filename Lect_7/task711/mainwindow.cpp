@@ -3,9 +3,6 @@
 #include <QDebug>
 #include <math.h>
 
-double num_x;
-double num_y;
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -66,7 +63,8 @@ void MainWindow::actions()
     num_x = ui->Display->text().toDouble();
 
     ui->Display->setText("0");
-    if(ui->pushButton_sqrt->isChecked()) on_pushButton_equals_clicked();
+    if(ui->pushButton_sqrt->isChecked())
+        on_pushButton_equals_clicked();
 
     button->setChecked(true);
 }
