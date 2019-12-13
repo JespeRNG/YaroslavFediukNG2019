@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     char sent[50];
-    int i = 0, words = 0, last = 0;
+    int i = 0, words = 0;
     bool isspace = true;
 
     cout << "Input your sentence please: ";
