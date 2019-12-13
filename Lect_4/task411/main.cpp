@@ -1,50 +1,29 @@
 #include <iostream>
-#include <string.h>
 
 using namespace std;
 
 int main()
 {
-    char sentence[100];
-    int i = 0;
-    int word_cnt = 0;
-    int sent_l = 0;
+    char sent[50];
+    int i = 0, words = 0, last = 0;
+    bool isspace = true;
 
-    cout << "Input please a sentence: ";
-    cin.getline(sentence, 100);
+    cout << "Input your sentence please: ";
+    cin.getline(sent, 50);
 
-    int space_cnt = 0;
-
-    if (sentence != NULL){
-        word_cnt = 1;
-    }
-
-    while (sentence[i] != NULL){
-        if (sentence[i] == ' '){
-            ++word_cnt;
+    while(sent[i] != NULL)
+    {
+        if(sent[i] == ' ')
+            isspace = true;
+        else if(isspace)
+        {
+            words++;
+            isspace = false;
         }
-
-        if (sentence == NULL){
-            word_cnt = 0;
-        }
-
-        if (sentence[i] == ' ' && sentence[i-1] == ' '){
-            space_cnt++;
-        }
-
         i++;
     }
 
-    word_cnt = word_cnt - space_cnt - 1;
+    cout << "\nSo, there are " << words << " words in your sentence :)\n";
 
-    if (word_cnt > 0){
-        if (word_cnt > 1){
-            cout << "\nThere are: " << word_cnt << " words in your sentence!\n";
-        }
-
-        if (word_cnt == 1){
-            cout << "\nThere is 1 word in your sentence!\n";
-        }
-
-    }else cout << "\nThere isn't any word in your sentence!\n";
+    return 0;
 }
