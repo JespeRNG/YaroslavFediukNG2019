@@ -22,8 +22,8 @@ int main()
     {
         if(sent[j] == sent[i-1] || i == j)
         {
-            if(j == i-1 && sent[i-1] == sent[j])
                 cout << "This word is a palindrome !" << endl;
+                break;
         }
         else{
             cout << "This word isn't a palindrome !" << endl;
